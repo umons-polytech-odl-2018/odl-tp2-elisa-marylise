@@ -2,10 +2,18 @@ package exercise1;
 
 public class BaseSalaryPlusCommissionEmployee extends Employee{
 
-	public int baseSalary;
-	public int commission;
-	public int Salary=baseSalary+getSales()*commission;
+	private int baseSalary;
+	private int commission;
 
+	protected BaseSalaryPlusCommissionEmployee(String name, int baseSalary, int commission){
+		super(name);
+		this.baseSalary=baseSalary;
+		this.commission=commission;
+	}
 
-	public int getBaseSalary(){return baseSalary;}
+	@Override
+	public int computeSalary(){
+		return baseSalary+getSales()*commission;
+	}
+
 }
